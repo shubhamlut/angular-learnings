@@ -1,0 +1,41 @@
+<p>login works!</p>
+<button (click)="handleClick()">Click Me</button>
+<h1>{{displayName}}</h1>
+
+<input type="text" (input)="handleInput($event)" />
+<button (click)="showName()">Show Name</button>
+
+<button (click)="toggleDisplay(display)">Toggle Display</button>
+
+@if(display){
+
+<div style="width: 200px; height: 200px; background-color: red"></div>
+
+} @for(student of students; track student; let id=$index){
+<h2>
+  <span>{{id+1 +". " +student.name}}</span>
+</h2>
+
+}
+<h1 *ngFor="let student of students">
+  <ul>
+    <a routerLink="/user/{{student.id}}/{{student.name}}">{{student.name}}</a>
+  </ul>
+</h1>
+
+<button (click)="count.set(count()+1)">Increment</button>
+<p>{{count()}}</p>
+
+<button (click)="updateCounter()">Update counter value</button>
+<h1>{{counter()}}</h1>
+
+//commuted signals can't be updated
+<h1>{{data()}}</h1>
+
+<button (click)="updateX()">Update x value</button>
+<h2>Value of z {{z()}}</h2>
+
+<hr />
+<p>two way data binding eg</p>
+<input type="text" [(ngModel)]="name" name="" id="" />
+<h3>{{name}}</h3>
